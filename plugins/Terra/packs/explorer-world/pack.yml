@@ -1,0 +1,114 @@
+id: EXPLORER_WORLD
+version: 0.1.0
+author: NicoN
+
+addons:
+  biome-provider-pipeline: "1.+"
+  biome-provider-single: "1.+"
+  biome-provider-extrusion: "1.+"
+  chunk-generator-noise-3d: "1.+"
+  config-biome: "1.+"
+  config-flora: "1.+"
+  config-noise-function: "1.+"
+  config-ore: "1.+"
+  config-palette: "1.+"
+  config-distributors: "1.+"
+  config-locators: "1.+"
+  config-feature: "1.+"
+  structure-terrascript-loader: "1.+"
+  structure-sponge-loader: "1.+"
+  language-yaml: "1.+"
+  generation-stage-feature: "1.+"
+  structure-function-check-noise-3d: "1.+"
+  palette-block-shortcut: "1.+"
+  structure-block-shortcut: "1.+"
+  terrascript-function-sampler: "1.+"
+
+generator: NOISE_3D
+
+biomes:
+  type: PIPELINE
+  resolution: 4
+  blend:
+    amplitude: 2
+    sampler:
+      type: OPEN_SIMPLEX_2
+      frequency: 0.1
+  pipeline:
+    source:
+      type: SAMPLER
+      sampler:
+        type: OPEN_SIMPLEX_2
+        dimensions: 2
+        frequency: 0.004
+      biomes:
+        - grass_land: 10
+        - mine: 1
+    stages:
+      - type: REPLACE
+        sampler:
+          type: OPEN_SIMPLEX_2
+          frequency: 0.005
+        from: grass_land
+        to:
+          - PLAINS: 3
+          - FORESTS: 3
+          - PLAIN_HILLS: 1
+          - FOREST_HILLS: 1
+      - type: REPLACE
+        sampler:
+          type: OPEN_SIMPLEX_2
+          frequency: 0.005
+        from: mine
+        to:
+          - COAL_MINE: 5
+          - COPPER_MINE: 5
+          - IRON_MINE: 3
+          - GOLD_MINE: 1
+          - DIAMOND_MINE: 1
+
+stages:
+  - id: flora
+    type: FEATURE
+  - id: trees
+    type: FEATURE
+  - id: ores
+    type: FEATURE
+
+samplers:
+  simplex:
+    dimensions: 2
+    type: FBM
+    octaves: 4
+    sampler:
+      type: OPEN_SIMPLEX_2
+      frequency: 0.0075
+  simplex3:
+    dimensions: 3
+    type: FBM
+    octaves: 4
+    sampler:
+      type: OPEN_SIMPLEX_2
+      frequency: 0.0075
+
+  simplex2:
+    dimensions: 2
+    type: LINEAR
+    min: -0.9
+    max: 0.9
+    sampler:
+      type: FBM
+      octaves: 4
+      sampler:
+        type: OPEN_SIMPLEX_2
+        frequency: 0.0075
+
+functions:
+  "<<":
+    - math/functions/terrace.yml:functions
+    - math/functions/lerp.yml:functions
+    - math/functions/maskSmooth.yml:functions
+
+samplers:
+  "<<":
+    - math/samplers/simplex.yml:samplers

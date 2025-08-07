@@ -1,0 +1,6 @@
+id: MOUNTAIN_PALETTE
+type: PALETTE
+
+layers:
+  - materials: minecraft:stone
+    layers: 1

@@ -1,0 +1,28 @@
+id: DIAMOND_VEIN_FEATURE
+type: FEATURE
+
+anchors:
+  - &structure DIAMOND_VEIN
+  - &densityThreshold 1/256 * ${features/ores/distribution.yml:diamond_vein.averageCountPerChunk} # Divide by 16^2 to get % per column
+  - &salt $features/ores/distribution.yml:diamond_vein.salt
+  - &range $features/ores/distribution.yml:diamond_vein.range
+  - &standard-deviation (${features/ores/distribution.yml:diamond_vein.range.max}-${features/ores/distribution.yml:diamond_vein.range.min})/6
+
+distributor:
+  type: SAMPLER
+  sampler:
+    type: POSITIVE_WHITE_NOISE
+    salt: *salt
+  threshold: *densityThreshold
+#averageCountPerChunk Divide by 16^2 to get % per column
+
+locator:
+  type: GAUSSIAN_RANDOM
+  amount: 1
+  height: *range
+  standard-deviation: *standard-deviation
+
+structures:
+  distribution:
+    type: CONSTANT
+  structures: DIAMOND_VEIN

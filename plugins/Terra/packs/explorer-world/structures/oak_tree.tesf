@@ -1,0 +1,20 @@
+num trunkHeight = randomInt(4) + 4;
+num leavesRadius = 5;
+num leavesRandomFactor = 1.5;
+
+for (num y = 0; y < trunkHeight; y = y + 1) {
+    block(0, y, 0, "minecraft:oak_log");
+}
+
+for (num x = -leavesRadius; x <= leavesRadius; x = x + 1) {
+    for (num y = -leavesRadius; y <= leavesRadius; y = y + 1) {
+        for (num z = -leavesRadius; z <= leavesRadius; z = z + 1) {
+            num distance = (x * x + y * y + z * z) / 2;
+            if (distance < leavesRadius) {
+                if ((distance == 1) || (randomInt(leavesRadius * leavesRandomFactor) > distance)) {
+                    block(x, y + trunkHeight, z, "minecraft:oak_leaves", false);
+                }
+            }
+        }
+    }
+}

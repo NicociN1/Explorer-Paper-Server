@@ -1,0 +1,69 @@
+coal_ore:
+  averageCountPerChunk: 16
+  salt: 4832
+  range:
+    min: -64
+    max: 192
+
+coal_vein:
+  averageCountPerChunk: 16
+  salt: 5843
+  range:
+    min: -64
+    max: 64
+
+iron_ore:
+  averageCountPerChunk: 10
+  salt: 2394
+  range:
+    min: -64
+    max: 64
+
+iron_vein:
+  averageCountPerChunk: 10
+  salt: 5840
+  range:
+    min: -64
+    max: 64
+
+copper_ore:
+  averageCountPerChunk: 16
+  salt: 3930
+  range:
+    min: -64
+    max: 192
+
+copper_vein:
+  averageCountPerChunk: 16
+  salt: 5840
+  range:
+    min: -64
+    max: 64
+
+gold_ore:
+  averageCountPerChunk: 2
+  salt: 3134
+  range:
+    min: -64
+    max: 32
+
+gold_vein:
+  averageCountPerChunk: 2
+  salt: 9694
+  range:
+    min: -64
+    max: 32
+
+diamond_ore:
+  averageCountPerChunk: 0.5
+  salt: 3857
+  range:
+    min: -64
+    max: 16
+
+diamond_vein:
+  averageCountPerChunk: 0.5
+  salt: 5323
+  range:
+    min: -64
+    max: 16

@@ -1,0 +1,42 @@
+id: FOREST_HILLS
+type: BIOME
+extends:
+  - CARVING_LAND
+  - NORMAL_ORES
+
+vanilla: minecraft:forest
+
+vars: &variables
+  base: 80
+  height: 10
+
+terrain:
+  sampler:
+    type: EXPRESSION
+    dimensions: 3
+    variables: *variables
+    expression: -y + base
+
+  sampler-2d:
+    dimensions: 2
+    type: EXPRESSION
+    variables: *variables
+    expression: (simplex(x, z)+1)/2 * height
+    samplers:
+      simplex:
+        dimensions: 2
+        type: FBM
+        octaves: 4
+        sampler:
+          type: OPEN_SIMPLEX_2
+          frequency: 0.0075
+
+palette:
+  - GRASS_PALETTE: 319
+  - << meta.yml:palette-bottom
+
+features:
+  flora:
+    - GRASS_FEATURE
+  trees:
+    - OAK_TREE_FEATURE

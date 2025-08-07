@@ -1,0 +1,29 @@
+id: GRASS_FEATURE
+type: FEATURE
+
+distributor:
+  type: SAMPLER
+  sampler:
+    type: POSITIVE_WHITE_NOISE
+  threshold: 0.25
+
+locator:
+  type: AND
+  locators:
+    - type: SURFACE
+      range: &range  #range values anchored for other locators to use
+        min: 0
+        max: 319
+    - type: PATTERN
+      range: *range  #references previously anchored range values
+      pattern:
+        type: MATCH_SET
+        blocks:
+          - minecraft:grass_block
+          - minecraft:dirt
+        offset: -1
+
+structures:
+  distribution:
+    type: CONSTANT
+  structures: BLOCK:minecraft:short_grass

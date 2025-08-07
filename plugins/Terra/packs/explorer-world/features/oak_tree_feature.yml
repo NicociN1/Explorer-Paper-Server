@@ -1,0 +1,29 @@
+id: OAK_TREE_FEATURE
+type: FEATURE
+
+distributor:
+  type: PADDED_GRID
+  width: 6
+  padding: 2
+  salt: 5864
+
+locator:
+  type: AND
+  locators:
+    - type: TOP
+      range: &range  #range values anchored for other locators to use
+        min: 0
+        max: 319
+    - type: PATTERN
+      range: *range  #references previously anchored range values
+      pattern:
+        type: MATCH_SET
+        blocks:
+          - minecraft:grass_block
+          - minecraft:dirt
+        offset: -1
+
+structures:
+  distribution:
+    type: CONSTANT
+  structures: oak_tree
