@@ -54,16 +54,37 @@ gold_vein:
     min: -64
     max: 32
 
+redstone_ore:
+  averageCountPerChunk: 3
+  salt: 5493
+  range:
+    min: -64
+    max: 16
+
+lapis_ore:
+  averageCountPerChunk: 3
+  salt: 6940
+  range:
+    min: -64
+    max: 16
+
 diamond_ore:
-  averageCountPerChunk: 0.5
+  averageCountPerChunk: 1
   salt: 3857
   range:
     min: -64
     max: 16
 
 diamond_vein:
-  averageCountPerChunk: 0.5
+  averageCountPerChunk: 1
   salt: 5323
   range:
     min: -64
     max: 16
+
+glowstone:
+  averageCountPerChunk: 6
+  salt: 6554
+  range:
+    min: -64
+    max: 64

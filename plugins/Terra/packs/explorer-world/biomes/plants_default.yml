@@ -1,0 +1,8 @@
+id: PLANTS_DEFAULT
+type: BIOME
+abstract: true
+
+features:
+  flora:
+    - GRASS_FEATURE
+    - FLOWER_FEATURE

@@ -4,3 +4,4 @@ world
 world_nether
 world_the_end
 .DS_Store
+plugins/Explorer-Paper/data.db

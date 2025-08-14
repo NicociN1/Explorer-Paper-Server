@@ -40,7 +40,7 @@ biomes:
       sampler:
         type: OPEN_SIMPLEX_2
         dimensions: 2
-        frequency: 0.004
+        frequency: 0.03
       biomes:
         - grass_land: 10
         - mine: 1
@@ -51,19 +51,21 @@ biomes:
           frequency: 0.005
         from: grass_land
         to:
-          - PLAINS: 3
-          - FORESTS: 3
-          - PLAIN_HILLS: 1
-          - FOREST_HILLS: 1
+          - PLAINS: 9
+          - FORESTS: 9
+          - PLAIN_HILLS: 3
+          - FOREST_HILLS: 3
+          - TALL_FORESTS: 2
+          - TALL_FOREST_HILLS: 2
       - type: REPLACE
         sampler:
           type: OPEN_SIMPLEX_2
           frequency: 0.005
         from: mine
         to:
-          - COAL_MINE: 5
-          - COPPER_MINE: 5
-          - IRON_MINE: 3
+          - COAL_MINE: 10
+          - COPPER_MINE: 10
+          - IRON_MINE: 5
           - GOLD_MINE: 1
           - DIAMOND_MINE: 1
 
@@ -74,41 +76,17 @@ stages:
     type: FEATURE
   - id: ores
     type: FEATURE
+  - id: ore_veins
+    type: FEATURE
+  - id: global-preprocessors
+    type: FEATURE
 
 samplers:
-  simplex:
-    dimensions: 2
-    type: FBM
-    octaves: 4
-    sampler:
-      type: OPEN_SIMPLEX_2
-      frequency: 0.0075
-  simplex3:
-    dimensions: 3
-    type: FBM
-    octaves: 4
-    sampler:
-      type: OPEN_SIMPLEX_2
-      frequency: 0.0075
-
-  simplex2:
-    dimensions: 2
-    type: LINEAR
-    min: -0.9
-    max: 0.9
-    sampler:
-      type: FBM
-      octaves: 4
-      sampler:
-        type: OPEN_SIMPLEX_2
-        frequency: 0.0075
+  "<<":
+    - math/samplers/simplex.yml:samplers
 
 functions:
   "<<":
     - math/functions/terrace.yml:functions
     - math/functions/lerp.yml:functions
     - math/functions/maskSmooth.yml:functions
-
-samplers:
-  "<<":
-    - math/samplers/simplex.yml:samplers

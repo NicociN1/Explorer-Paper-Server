@@ -1,0 +1,12 @@
+id: BASE
+type: BIOME
+abstract: true
+extends:
+  - ORES_DEFAULT
+  - CARVING_LAND
+
+slant-depth: 15
+
+features:
+  global-preprocessors:
+    - CAVE_GLOW_LICHEN

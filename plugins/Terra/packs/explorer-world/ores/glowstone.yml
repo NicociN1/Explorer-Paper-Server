@@ -1,0 +1,7 @@
+id: GLOWSTONE
+type: ORE
+extends: ABSTRACT_ORE
+
+material: minecraft:glowstone
+
+size: 6

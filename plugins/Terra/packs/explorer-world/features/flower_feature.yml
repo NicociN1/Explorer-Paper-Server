@@ -1,0 +1,41 @@
+id: FLOWER_FEATURE
+type: FEATURE
+
+distributor:
+  type: SAMPLER
+  sampler:
+    type: POSITIVE_WHITE_NOISE
+  threshold: 0.25
+
+locator:
+  type: AND
+  locators:
+    - type: SURFACE
+      range: &range  #range values anchored for other locators to use
+        min: 0
+        max: 319
+    - type: PATTERN
+      range: *range  #references previously anchored range values
+      pattern:
+        type: MATCH_SET
+        blocks:
+          - minecraft:grass_block
+          - minecraft:dirt
+        offset: -1
+
+structures:
+  distribution:
+    type: CONSTANT
+  structures:
+    - BLOCK:minecraft:dandelion: 1
+    - BLOCK:minecraft:poppy: 1
+    - BLOCK:minecraft:blue_orchid: 1
+    - BLOCK:minecraft:allium: 1
+    - BLOCK:minecraft:azure_bluet: 1
+    - BLOCK:minecraft:red_tulip: 1
+    - BLOCK:minecraft:orange_tulip: 1
+    - BLOCK:minecraft:white_tulip: 1
+    - BLOCK:minecraft:pink_tulip: 1
+    - BLOCK:minecraft:oxeye_daisy: 1
+    - BLOCK:minecraft:cornflower: 1
+    - BLOCK:minecraft:lily_of_the_valley: 1

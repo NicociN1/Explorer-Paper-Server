@@ -1,8 +1,8 @@
 id: FOREST_HILLS
 type: BIOME
 extends:
-  - CARVING_LAND
-  - NORMAL_ORES
+  - BASE
+  - PLANTS_DEFAULT
 
 vanilla: minecraft:forest
 
@@ -36,7 +36,5 @@ palette:
   - << meta.yml:palette-bottom
 
 features:
-  flora:
-    - GRASS_FEATURE
   trees:
     - OAK_TREE_FEATURE

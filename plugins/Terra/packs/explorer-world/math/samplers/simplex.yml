@@ -13,3 +13,14 @@ samplers:
     sampler:
       type: OPEN_SIMPLEX_2
       frequency: 0.0075
+  simplex2:
+    dimensions: 2
+    type: LINEAR
+    min: -0.9
+    max: 0.9
+    sampler:
+      type: FBM
+      octaves: 4
+      sampler:
+        type: OPEN_SIMPLEX_2
+        frequency: 0.0075

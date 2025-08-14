@@ -2,6 +2,7 @@ id: IRON_MINE
 type: BIOME
 extends:
   - CARVING_LAND
+  - ORES_DEFAULT
 
 vanilla: minecraft:windswept_hills
 
@@ -42,12 +43,8 @@ terrain:
 
 palette:
   - MOUNTAIN_PALETTE: 319
+  - << meta.yml:palette-bottom
 
 features:
-  ores:
+  ore_veins:
     - IRON_VEIN_FEATURE
-    - COAL_ORE_FEATURE
-    - IRON_ORE_FEATURE
-    - COPPER_ORE_FEATURE
-    - GOLD_ORE_FEATURE
-    - DIAMOND_ORE_FEATURE
